@@ -30,8 +30,6 @@ feature 'Starting at the Welcome Page' do
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
 
-        find(:css, 'input#user_terms_of_service').set(true)
-
         click_button 'Sign up'
 
         expect(page).to have_content('Welcome! You have signed up successfully.')

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 group :rspec, halt_on_fail: true, cmd: 'bundle exec spring rspec' do
   guard :rspec, failed_mode: :keep, all_on_start: true, all_after_pass: true do
     watch(%r{^spec/.+_spec\.rb$})
@@ -23,3 +21,15 @@ group :rspec, halt_on_fail: true, cmd: 'bundle exec spring rspec' do
     watch(%r{^spec/features/steps/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/features' }
   end
 end
+
+group :livereload do
+  guard 'livereload' do
+    watch(%r{app/views/.+\.(erb|haml|slim)$})
+    watch(%r{app/helpers/.+\.rb})
+    watch(%r{public/.+\.(css|js|html)})
+    watch(%r{config/locales/.+\.yml})
+    # Rails Assets Pipeline
+    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
+  end
+end
+

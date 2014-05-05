@@ -2,7 +2,7 @@ describe User do
 end
 
 # == Schema Information
-# Schema version: 20140505080701
+# Schema version: 20140505162210
 #
 # Table name: users
 #

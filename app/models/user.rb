@@ -3,10 +3,12 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :profiles
 end
 
 # == Schema Information
-# Schema version: 20140505080701
+# Schema version: 20140505162210
 #
 # Table name: users
 #

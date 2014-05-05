@@ -5,6 +5,7 @@ module RegistrationsHelper
   end
 
   def selected_role
-    Role.find_by_name(params['plan'].try(:downcase)).try(:id)
+    role = params[:plan].try(:downcase)
+    Role.find_by_name(role).try(:id)
   end
 end

@@ -38,13 +38,14 @@ group :development, :test do
 end
 
 group :test do
+  #gem 'ffaker'
+  #gem 'poltergeist'
+  #gem 'timecop'
+  #gem 'vcr'
   gem 'capybara'
-  gem 'ffaker'
-  gem 'poltergeist'
-  gem 'rspec-rails'
-  gem 'timecop'
-  gem 'vcr'
   gem 'fuubar'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :production do

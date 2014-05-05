@@ -1,51 +1,60 @@
-<%= content_for(:policy) do %>
-  Accept <%= link_to 'Terms of Service', terms_of_service_path, target: '_blank' %>
-  and <%= link_to 'Privacy Policy', privacy_policy_path, target: '_blank' %>
-<% end %>
+<%= content_for(:policy) do %>I agree to the <%= link_to 'TOS', terms_of_service_path, target: '_blank' %> and <%= link_to 'Privacy Policy', privacy_policy_path, target: '_blank' %><% end %>
 
-<h2>Register with UGl.st</h2>
+<div class="col-sm-4">
+  <h2>Register with UGl.st</h2>
 
-<p>You're moments away from registering your community or company with UGl.st and increasing your connection with the global user-group community.</p>
+  <p>You're moments away from registering with UGl.st and increasing your connection with the global user-group community.</p>
 
-<h3>Which membership is right for you?</h3>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper_mappings: { check_boxes: :vertical_radio_and_checkboxes, radio_buttons: :vertical_radio_and_checkboxes, file: :vertical_file_input, boolean: :vertical_boolean }) do |f| %>
+    <%= f.error_notification %>
 
-<ol>
-  <li id="participant-plan-description">
-    <strong>Participant</strong>
-    <p>You love user-groups and are involved in your community. You can also be added to user-groups to help keep them up-to-date as well participate in their community.</p>
-    <strong>FREE</strong> membership
-  </li>
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :password, required: true %>
+      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :roles, as: :select, selected: selected_role, collection: select_plans_list, include_blank: 'Please select a plan', required: true, label: 'Plan' %>
+      <%= f.input :accept_terms_of_service , as: :boolean, label: content_for(:policy), required: true, default: false %>
+    </div>
 
-  <li id="builder-plan-description">
-    <strong>Builder</strong>
-    <p>You build your community by organizer or assisting with a user-group. You'll be able to join private chats with other user-group community builders to share info and learn more about organizing communities.</p>
-    <strong>FREE</strong> membership
-  </li>
+    <div class="form-actions">
+      <%= f.button :submit, 'Sign up' %>
+    </div>
 
-  <li id="supporter-plan-description">
-    <strong>Supporter</strong>
-    <p>You represent a company or individual who is looking for ways to support user-group communities. Your support can be either financial, material, or to provide hosting. We will help put you in touch the with builders and participants who can best utilize your resources.</p>
-    <strong>FREE</strong> membership
-  </li>
-</ol>
+  <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <%= render "devise/shared/links" %>
+</div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :preferred_name, hint: '(OPTIONAL) What\'s your preferred name? How should we address you?' %>
-    <%= f.input :full_name, hint: '(OPTIONAL) What\'s your full name? How should we formally address?' %>
-    <%= f.input :password, required: true %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :roles, as: :select, selected: selected_role, collection: select_plans_list, include_blank: 'Please select a plan', required: true, label: 'Plan' %>
-    <%= f.input :accept_terms_of_service , as: :boolean, label: content_for(:policy), required: true %>
+<div class="col-sm-4">
+  <h3>Which membership level is right for you?</h3>
+
+  <div class="list-group" id="plan-descriptions">
+    <a href="#" class="list-group-item participant-plan-description <%= params['plan'] == 'participant' ? 'active' : ''%>" id="participant-plan-description">
+      <h4 class="list-group-item-heading">Participant</h4>
+      <p class="list-group-item-text">
+        You love user-groups and are involved in your community. You can also be added to user-groups to help keep them up-to-date as well participate in their community.
+      </p>
+
+      <h4 class="list-group-item-text">FREE</h4>
+    </a>
+
+    <a href="#" id="builder-plan-description" class="list-group-item builder-plan-description <%= params['plan'] == 'builder' ? 'active' : ''%>">
+      <h4 class="list-group-item-heading">Builder</h4>
+      <p class="list-group-item-text">
+        You build your community by organizer or assisting with a user-group. You'll be able to join private chats with other user-group community builders to share info and learn more about organizing communities.
+      </p>
+
+      <h4 class="list-group-item-text">FREE</h4>
+    </a>
+
+    <a href="#" id="supporter-plan-description" class="list-group-item supporter-plan-description <%= params['plan'] == 'supporter' ? 'active' : ''%>">
+      <h4 class="list-group-item-heading">Supporter</h4>
+      <p class="list-group-item-text">
+        You represent a company or individual who is looking for ways to support user-group communities. Your support can be either financial, material, or to provide hosting. We will help put you in touch the with builders and participants who can best utilize your resources.
+      </p>
+
+      <h4 class="list-group-item-text">$99/month</h4>
+    </a>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Sign up' %>
-  </div>
-
-<% end %>
-
-<%= render "devise/shared/links" %>

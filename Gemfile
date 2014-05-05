@@ -30,6 +30,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'annotate'
 end
 
 group :development, :test do

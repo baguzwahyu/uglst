@@ -28,10 +28,11 @@ group :development do
   gem 'guard-livereload', require: false
   gem 'guard-rspec'
   gem 'rubocop', require: false
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
-  gem 'spring'
   gem 'jazz_hands'
 end
 

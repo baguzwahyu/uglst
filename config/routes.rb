@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get '/contact' => 'pages#contact'
+  get '/privacy_policy' => 'pages#privacy_policy'
+  get '/terms_of_service' => 'pages#terms_of_service'
+
   resources :user_groups
 
   devise_for :users

@@ -1,3 +1,8 @@
+<%= content_for(:policy) do %>
+  Accept <%= link_to 'Terms of Service', terms_of_service_path, target: '_blank' %>
+  and <%= link_to 'Privacy Policy', privacy_policy_path, target: '_blank' %>
+<% end %>
+
 <h2>Register with UGl.st</h2>
 
 <p>You're moments away from registering your community or company with UGl.st and increasing your connection with the global user-group community.</p>
@@ -29,13 +34,16 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :preferred_name, hint: '(OPTIONAL) What\'s your preferred name? How should we address you?' %>
+    <%= f.input :full_name, hint: '(OPTIONAL) What\'s your full name? How should we formally address?' %>
     <%= f.input :password, required: true %>
     <%= f.input :password_confirmation, required: true %>
-    <%= f.input :roles, as: :select, selected: selected_role, collection: select_plans_list, include_blank: 'Please select a plan', required: true %>
+    <%= f.input :roles, as: :select, selected: selected_role, collection: select_plans_list, include_blank: 'Please select a plan', required: true, label: 'Plan' %>
+    <%= f.input :accept_terms_of_service , as: :boolean, label: content_for(:policy), required: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, 'Sign up' %>
   </div>
 
 <% end %>

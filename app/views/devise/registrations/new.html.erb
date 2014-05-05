@@ -1,4 +1,28 @@
-<h2>Sign up</h2>
+<h2>Register with UGl.st</h2>
+
+<p>You're moments away from registering your community or company with UGl.st and increasing your connection with the global user-group community.</p>
+
+<h3>Which membership is right for you?</h3>
+
+<ol>
+  <li id="participant-plan-description">
+    <strong>Participant</strong>
+    <p>You love user-groups and are involved in your community. You can also be added to user-groups to help keep them up-to-date as well participate in their community.</p>
+    <strong>FREE</strong> membership
+  </li>
+
+  <li id="builder-plan-description">
+    <strong>Builder</strong>
+    <p>You build your community by organizer or assisting with a user-group. You'll be able to join private chats with other user-group community builders to share info and learn more about organizing communities.</p>
+    <strong>FREE</strong> membership
+  </li>
+
+  <li id="supporter-plan-description">
+    <strong>Supporter</strong>
+    <p>You represent a company or individual who is looking for ways to support user-group communities. Your support can be either financial, material, or to provide hosting. We will help put you in touch the with builders and participants who can best utilize your resources.</p>
+    <strong>FREE</strong> membership
+  </li>
+</ol>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -7,11 +31,13 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :roles, as: :select, selected: selected_role, collection: select_plans_list, include_blank: 'Please select a plan', required: true %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>

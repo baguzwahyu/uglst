@@ -28,8 +28,13 @@ module Uglst
     end
 
     console do
-      Hirb.enable
       config.console = Pry
+    end
+
+    config.after_initialize do
+      if %w{development test}.include?(Rails.env)
+        Hirb.enable
+      end
     end
   end
 end

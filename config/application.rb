@@ -26,5 +26,10 @@ module Uglst
       g.test_framework :rspec, fixture: true
       g.view_specs false
     end
+
+    console do
+      Hirb.enable
+      config.console = Pry
+    end
   end
 end

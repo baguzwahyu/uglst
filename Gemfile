@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.12'
+ruby '2.1.1'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'pg'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'country_select'
@@ -16,25 +17,37 @@ gem 'simple_form'
 gem 'therubyrhino'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'foreman'
+gem 'awesome_print'
 
 group :development do
-  gem 'capistrano-rails'
+  gem 'better_errors'
+  gem 'guard-rspec'
+  gem 'rubocop', require: false
+  gem 'brakeman', require: false
 end
 
 group :development, :test do
-  gem 'activerecord-jdbcsqlite3-adapter'
+  gem 'spring'
+  gem 'jazz_hands'
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara'
-  gem 'poltergeist'
   gem 'ffaker'
+  gem 'poltergeist'
+  gem 'rspec-rails'
+  gem 'timecop'
+  gem 'vcr'
+  gem 'fuubar'
 end
 
 group :production do
+  gem 'le'
+  gem 'newrelic_rpm'
   gem 'puma', require: false
-  gem 'activerecord-jdbcpostgresql-adapter'
+  gem 'rails_12factor'
+  gem 'rails_stdout_logging'
 end
 
 group :doc do

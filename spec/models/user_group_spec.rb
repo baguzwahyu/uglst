@@ -1,0 +1,2 @@
+describe UserGroup do
+end

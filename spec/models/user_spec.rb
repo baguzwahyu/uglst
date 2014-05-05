@@ -1,4 +1,5 @@
 describe User do
+  it { should  have_many :profiles }
 end
 
 # == Schema Information

@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
 
-  validates :nickname, uniqueness: true
+  validates :nickname, uniqueness: true, presence: true
 end
 
 # == Schema Information

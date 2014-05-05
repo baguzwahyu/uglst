@@ -22,7 +22,7 @@ feature 'Starting at the Welcome Page' do
         expect(find(:css, 'select#user_roles').value).to eq(Role.find_by_name('participant').id.to_s)
       end
 
-      scenario 'signs up' do
+      scenario 'sign up' do
         visit root_path
         click_link 'participant'
 
@@ -30,7 +30,7 @@ feature 'Starting at the Welcome Page' do
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
 
-        find(:css, 'input#user_accept_terms_of_service').set(true)
+        find(:css, 'input#user_terms_of_service').set(true)
 
         click_button 'Sign up'
 

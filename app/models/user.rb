@@ -25,9 +25,6 @@ end
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  full_name              :string(255)
-#  preferred_name         :string(255)
-#  terms_of_service       :boolean
 #
 # Indexes
 #

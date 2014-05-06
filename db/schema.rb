@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140506040844) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
-    t.string   "preferred_name"
+    t.string   "full_name"
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -71,9 +71,6 @@ ActiveRecord::Schema.define(version: 20140506040844) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "full_name"
-    t.string   "preferred_name"
-    t.boolean  "terms_of_service"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

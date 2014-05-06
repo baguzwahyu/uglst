@@ -17,7 +17,7 @@ end
 #
 #  id             :integer          not null, primary key
 #  user_id        :integer          indexed
-#  preferred_name :string(255)
+#  full_name :string(255)
 #  nickname       :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime

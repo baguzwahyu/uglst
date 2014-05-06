@@ -24,14 +24,15 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
+  gem 'annotate'
   gem 'better_errors'
   gem 'brakeman', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rspec'
+  gem 'rails-erd'
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'annotate'
 end
 
 group :development, :test do

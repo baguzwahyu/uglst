@@ -2,7 +2,7 @@ class Affiliation < ActiveRecord::Base
   belongs_to :user
   belongs_to :user_group
 
-  validates :role, inclusion: { in: %w{participant builder} }
+  validates :role, inclusion: { in: [:participant, :builder] }
 end
 
 # == Schema Information

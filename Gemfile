@@ -37,10 +37,10 @@ end
 
 group :development, :test do
   gem 'jazz_hands'
+  gem 'ffaker'
 end
 
 group :test do
-  #gem 'ffaker'
   #gem 'poltergeist'
   #gem 'timecop'
   #gem 'vcr'

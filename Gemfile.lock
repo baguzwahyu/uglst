@@ -113,6 +113,7 @@ GEM
     eventmachine (1.0.3-java)
     execjs (2.0.2)
     fastercsv (1.5.5)
+    ffaker (1.24.0)
     ffi (1.9.3)
     ffi (1.9.3-java)
     figaro (0.7.0)
@@ -372,6 +373,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   devise
+  ffaker
   figaro
   foreman
   friendly_id

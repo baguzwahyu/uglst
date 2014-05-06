@@ -1,7 +1,7 @@
-Role.find_or_create_by(name: 'participant')
-Role.find_or_create_by(name: 'builder')
-Role.find_or_create_by(name: 'supporter')
-Role.find_or_create_by(name: 'admin')
+Role.find_or_create_by(name: :participant)
+Role.find_or_create_by(name: :builder)
+Role.find_or_create_by(name: :supporter)
+Role.find_or_create_by(name: :admin)
 
 User.find_or_create_by(email: 'mike@ugtastic.com') do |user|
   user.password = Rails.env.development? ? 'password' : SecureRandom.uuid

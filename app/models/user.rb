@@ -6,7 +6,25 @@ class User < ActiveRecord::Base
 
   has_one :profile
 
+  has_many :affiliations
   has_many :user_groups, through: :affiliations
+
+  after_create :assign_default_role
+
+  def assign_default_role
+    add_role(:participant) if self.roles.blank?
+  end
+
+  scope :participants, ->{ joins(:affiliations).where(affiliations: { role: :participant }) }
+  scope :builders, ->{ joins(:affiliations).where(affiliations: { role: :builder }) }
+
+  def add_user_group_as_builder(user_group)
+    affiliations.create(role: :builder, user_group: user_group)
+  end
+
+  def add_user_group_as_participant(user_group)
+    affiliations.create(role: :participant, user_group: user_group)
+  end
 end
 
 # == Schema Information

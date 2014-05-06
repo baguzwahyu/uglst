@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :profiles
+
+  has_many :user_groups, through: :affiliations
 end
 
 # == Schema Information

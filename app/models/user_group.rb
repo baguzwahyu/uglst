@@ -1,4 +1,5 @@
 class UserGroup < ActiveRecord::Base
+  has_many :users, through: :affiliations
 end
 
 # == Schema Information

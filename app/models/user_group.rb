@@ -1,5 +1,7 @@
 class UserGroup < ActiveRecord::Base
   has_many :users, through: :affiliations
+
+  validates :name, presence: true
 end
 
 # == Schema Information

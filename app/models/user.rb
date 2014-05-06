@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
   scope :participants, ->{ joins(:affiliations).where(affiliations: { role: :participant }) }
   scope :builders, ->{ joins(:affiliations).where(affiliations: { role: :builder }) }
 
-  def add_user_group_as_builder(user_group)
+  def join_user_group_as_builder(user_group)
     affiliations.create(role: :builder, user_group: user_group)
   end
 
-  def add_user_group_as_participant(user_group)
+  def join_user_group_as_participant(user_group)
     affiliations.create(role: :participant, user_group: user_group)
   end
 end

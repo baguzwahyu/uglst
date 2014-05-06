@@ -1,5 +1,22 @@
-require 'spec_helper'
-
 describe Affiliation do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :user }
+  it { should belong_to :user_group }
 end
+
+# == Schema Information
+# Schema version: 20140506045628
+#
+# Table name: affiliations
+#
+#  id            :integer          not null, primary key
+#  user_id       :integer          indexed
+#  user_group_id :integer          indexed
+#  role          :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+# Indexes
+#
+#  index_affiliations_on_user_group_id  (user_group_id)
+#  index_affiliations_on_user_id        (user_id)
+#

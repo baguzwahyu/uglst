@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def nav_tab_active(path)
-    active_nav_tab = URI.parse(String(request.original_url)).path.split('/').reject { |token| token.empty? }.first.try(:downcase)
+    active_nav_tab  = URI.parse(String(request.original_url)).path.split('/').reject { |token| token.empty? }.first.try(:downcase)
     current_nav_tab = URI.parse(String(path)).path.split('/').reject { |token| token.empty? }.first.try(:downcase)
 
     if active_nav_tab == current_nav_tab

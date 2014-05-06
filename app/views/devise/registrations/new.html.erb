@@ -1,7 +1,8 @@
 <div class="col-sm-4">
   <h2>Register with UGl.st</h2>
 
-  <p>You're moments away from registering with UGl.st and increasing your connection with the global user-group community.</p>
+  <p>You're moments away from registering with UGl.st and increasing your connection with the global user-group
+    community.</p>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper_mappings: { check_boxes: :vertical_radio_and_checkboxes, radio_buttons: :vertical_radio_and_checkboxes, file: :vertical_file_input, boolean: :vertical_boolean }) do |f| %>
     <%= f.error_notification %>
@@ -13,7 +14,10 @@
       <%= f.input :roles, as: :select, selected: selected_role, collection: select_plans_list, include_blank: 'Please select a plan', required: true, label: 'Plan' %>
     </div>
 
-    <div class="alert alert-info">Your email and personal data is not for sale. Please see our <%= link_to 'Privacy Policy', privacy_policy_path, target: '_blank' %> and <%= link_to 'TOS', terms_of_service_path, target: '_blank' %> for more.</div>
+    <div class="alert alert-info">Your email and personal data is not for sale. Please see
+      our <%= link_to 'Privacy Policy', privacy_policy_path, target: '_blank' %>
+      and <%= link_to 'TOS', terms_of_service_path, target: '_blank' %> for more.
+    </div>
 
     <div class="form-actions"><%= f.button :submit, 'Sign up' %></div>
   <% end %>
@@ -26,28 +30,35 @@
   <h3>Which plan is right for you?</h3>
 
   <div class="list-group" id="plan-descriptions">
-    <a href="#" class="list-group-item participant-plan-description <%= params['plan'] == 'participant' ? 'active' : ''%>" id="participant-plan-description">
+    <a href="#" class="list-group-item participant-plan-description <%= params['plan'] == 'participant' ? 'active' : '' %>" id="participant-plan-description">
       <h4 class="list-group-item-heading">Participant</h4>
+
       <p class="list-group-item-text">
-        You love user-groups and are involved in your community. You can also be added to user-groups to help keep them up-to-date as well participate in their community.
+        You love user-groups and are involved in your community. You can also be added to user-groups to help keep them
+        up-to-date as well participate in their community.
       </p>
 
       <h4 class="list-group-item-text">FREE</h4>
     </a>
 
-    <a href="#" id="builder-plan-description" class="list-group-item builder-plan-description <%= params['plan'] == 'builder' ? 'active' : ''%>">
+    <a href="#" id="builder-plan-description" class="list-group-item builder-plan-description <%= params['plan'] == 'builder' ? 'active' : '' %>">
       <h4 class="list-group-item-heading">Builder</h4>
+
       <p class="list-group-item-text">
-        You build your community by organizer or assisting with a user-group. You'll be able to join private chats with other user-group community builders to share info and learn more about organizing communities.
+        You build your community by organizer or assisting with a user-group. You'll be able to join private chats with
+        other user-group community builders to share info and learn more about organizing communities.
       </p>
 
       <h4 class="list-group-item-text">FREE</h4>
     </a>
 
-    <a href="#" id="supporter-plan-description" class="list-group-item supporter-plan-description <%= params['plan'] == 'supporter' ? 'active' : ''%>">
+    <a href="#" id="supporter-plan-description" class="list-group-item supporter-plan-description <%= params['plan'] == 'supporter' ? 'active' : '' %>">
       <h4 class="list-group-item-heading">Supporter</h4>
+
       <p class="list-group-item-text">
-        You represent a company or individual who is looking for ways to support user-group communities. Your support can be either financial, material, or to provide hosting. We will help put you in touch the with builders and participants who can best utilize your resources.
+        You represent a company or individual who is looking for ways to support user-group communities. Your support
+        can be either financial, material, or to provide hosting. We will help put you in touch the with builders and
+        participants who can best utilize your resources.
       </p>
 
       <h4 class="list-group-item-text">$99/month</h4>

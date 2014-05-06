@@ -5,7 +5,7 @@ class UserGroup < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140505162210
+# Schema version: 20140506045628
 #
 # Table name: user_groups
 #

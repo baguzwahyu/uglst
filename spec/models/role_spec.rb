@@ -1,10 +1,8 @@
-require 'spec_helper'
-
 describe Role do
 end
 
 # == Schema Information
-# Schema version: 20140505162210
+# Schema version: 20140506045628
 #
 # Table name: roles
 #

@@ -7,50 +7,50 @@
   </div>
   -->
 
-  <div class="jumbotron">
-    <h1>Build. Participate. Support.</h1>
+<div class="jumbotron">
+  <h1>Build. Participate. Support.</h1>
 
-    <p>The three hardest things in running a User-Group are finding a location, promoting your community, and funding.
-      User-Group List helps with promotion by letting you create a custom landing page to promote your User-Group
-      community then with connecting your UG with sponsors who provide hosting, financial, or material support.</p>
+  <p>The three hardest things in running a User-Group are finding a location, promoting your community, and funding.
+    User-Group List helps with promotion by letting you create a custom landing page to promote your User-Group
+    community then with connecting your UG with sponsors who provide hosting, financial, or material support.</p>
 
-    <p><%= link_to 'Build your community today!', new_user_registration_path(plan: 'builder'),  class: 'btn btn-lg btn-success', role: 'button', id: 'builder'  %></p>
+  <p><%= link_to 'Build your community today!', new_user_registration_path(plan: 'builder'), class: 'btn btn-lg btn-success', role: 'button', id: 'builder' %></p>
+</div>
+
+<div class="row">
+  <div class="col-lg-4">
+    <h2>Builders</h2>
+
+    <p>Start by building your landing page. You'll be able to list a description of your user-group, provide links
+      back to your meeting pages and help people learn what your community is all about. After your page is approved
+      and published you'll become eligible for sponsorship offers and promotions.</p>
+
+    <p><%= link_to raw('Build up your community presence &raquo;'), new_user_registration_path(plan: 'builder'), { class: 'btn btn-primary', role: 'button' } %></p>
   </div>
 
-  <div class="row">
-    <div class="col-lg-4">
-      <h2>Builders</h2>
+  <div class="col-lg-4">
+    <h2>Participants</h2>
 
-      <p>Start by building your landing page. You'll be able to list a description of your user-group, provide links
-        back to your meeting pages and help people learn what your community is all about. After your page is approved
-        and published you'll become eligible for sponsorship offers and promotions.</p>
+    <p>Never miss a community event again. Find User-Groups near you and subscribe for updates. Search to discover the
+      community you might not even know existed!</p>
 
-      <p><%= link_to raw('Build up your community presence &raquo;'), new_user_registration_path(plan: 'builder'), { class: 'btn btn-primary', role: 'button' } %></p>
-    </div>
-
-    <div class="col-lg-4">
-      <h2>Participants</h2>
-
-      <p>Never miss a community event again. Find User-Groups near you and subscribe for updates. Search to discover the
-        community you might not even know existed!</p>
-
-      <p><%= link_to raw('Find your community now &raquo;'), new_user_registration_path(plan: 'participant'),  class: 'btn btn-primary', role: 'button', id: 'participant'  %></p>
-    </div>
-
-    <div class="col-lg-4">
-      <h2>Supporters</h2>
-
-      <p>Can your company host User-Group meetings? Register and add your location to our User-Group hosts registry.</p>
-
-      <p>Register your company as a sponsor and we can help you set the terms and conditions for distributing your
-        support to User-Groups near you or worldwide. We can help you find a worthy community where your sponsorship
-        support will have the best ROI, both for you and the community you're supporting.</p>
-
-      <p><%= link_to raw('Register as a community supporter today &raquo;'), new_user_registration_path(plan: 'supporter'),  class: 'btn btn-primary', role: 'button', id: 'supporter'  %></p>
-    </div>
+    <p><%= link_to raw('Find your community now &raquo;'), new_user_registration_path(plan: 'participant'), class: 'btn btn-primary', role: 'button', id: 'participant' %></p>
   </div>
 
-  <!-- Site footer -->
-  <div class="footer">
-    <p>&copy; Mike Hall 2014</p>
+  <div class="col-lg-4">
+    <h2>Supporters</h2>
+
+    <p>Can your company host User-Group meetings? Register and add your location to our User-Group hosts registry.</p>
+
+    <p>Register your company as a sponsor and we can help you set the terms and conditions for distributing your
+      support to User-Groups near you or worldwide. We can help you find a worthy community where your sponsorship
+      support will have the best ROI, both for you and the community you're supporting.</p>
+
+    <p><%= link_to raw('Register as a community supporter today &raquo;'), new_user_registration_path(plan: 'supporter'), class: 'btn btn-primary', role: 'button', id: 'supporter' %></p>
   </div>
+</div>
+
+<!-- Site footer -->
+<div class="footer">
+  <p>&copy; Mike Hall 2014</p>
+</div>

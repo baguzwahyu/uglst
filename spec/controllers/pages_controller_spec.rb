@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe PagesController do
 
   describe "GET 'contact'" do

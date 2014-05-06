@@ -5,16 +5,16 @@ class Profile < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140505162210
+# Schema version: 20140506045628
 #
 # Table name: profiles
 #
-#  id             :integer          not null, primary key
-#  user_id        :integer          indexed
-#  full_name :string(255)
-#  nickname       :string(255)
-#  created_at     :datetime
-#  updated_at     :datetime
+#  id         :integer          not null, primary key
+#  user_id    :integer          indexed
+#  full_name  :string(255)
+#  nickname   :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 # Indexes
 #

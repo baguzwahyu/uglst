@@ -12,11 +12,11 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
-  config.color_enabled = true
-  config.fixture_path = "#{Rails.root}/spec/fixtures"
-  config.infer_base_class_for_anonymous_controllers = true
-  config.order = 'random'
+  config.color_enabled                                   = true
+  config.fixture_path                                    = "#{Rails.root}/spec/fixtures"
+  config.infer_base_class_for_anonymous_controllers      = true
+  config.order                                           = 'random'
   config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.tty = true
-  config.use_transactional_fixtures = true
+  config.tty                                             = true
+  config.use_transactional_fixtures                      = true
 end

@@ -7,7 +7,7 @@
 #   column: value
 
 # == Schema Information
-# Schema version: 20140505162210
+# Schema version: 20140506045628
 #
 # Table name: users
 #
@@ -24,9 +24,6 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  full_name              :string(255)
-#  preferred_name         :string(255)
-#  terms_of_service       :boolean
 #
 # Indexes
 #

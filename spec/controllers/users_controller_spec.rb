@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe UsersController do
 
   describe "GET 'show'", :pending do

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   rolify
 
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
 
@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140505162210
+# Schema version: 20140506045628
 #
 # Table name: users
 #

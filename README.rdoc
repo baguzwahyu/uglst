@@ -1,28 +1,17 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+a user can participate in many user-groups
+a user can build many user-groups
+a user probably won't be a supporter of any user-groups
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+a builder can administer their own user-group
+a builder can block a participant from adding themselves to a user-group
+a builder can mark themselves as attended a user-group meeting
+a builder can add another user as a builder for their user-group
+a participant can mark themselves as attended a user-group meeting
+a participant can mark themselves as belonging to a user-group
+a participant can verify they attended a meeting
+
+
+user == relationship ==> user_group
+        - participant
+        - builder

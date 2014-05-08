@@ -26,11 +26,18 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'annotate'
   gem 'better_errors'
-  gem 'brakeman', require: false
+  gem 'binding_of_caller'
+  gem 'brakeman'
+  gem 'guard-brakeman'
+  gem 'guard-bundler', require: false
   gem 'guard-livereload', require: false
+  gem 'guard-migrate'
   gem 'guard-rspec'
+  gem 'guard-rubocop'
+  gem 'meta_request'
+  gem 'quiet_assets'
   gem 'rails-erd'
-  gem 'rubocop', require: false
+  gem 'rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
 end
@@ -41,13 +48,13 @@ group :development, :test do
 end
 
 group :test do
-  #gem 'poltergeist'
-  #gem 'timecop'
-  #gem 'vcr'
   gem 'capybara'
   gem 'fuubar'
+  gem 'poltergeist'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'timecop'
+  gem 'vcr'
 end
 
 group :production do

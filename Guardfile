@@ -1,4 +1,16 @@
 group :rspec, halt_on_fail: true, cmd: 'bundle exec spring rspec' do
+
+  guard :bundler do
+    watch('Gemfile')
+    # Uncomment next line if your Gemfile contains the `gemspec' command.
+    # watch(/^.+\.gemspec/)
+  end
+
+  guard 'migrate', reset: true, seed: true, test_clone: true do
+    watch(%r{^db/migrate/(\d+).+\.rb})
+    watch('db/seeds.rb')
+  end
+
   guard :rspec, failed_mode: :keep, all_on_start: true, all_after_pass: true do
     watch(%r{^spec/.+_spec\.rb$})
     watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
@@ -33,3 +45,18 @@ group :livereload do
   end
 end
 
+group :brakeman do
+  guard 'brakeman', :run_on_start => true do
+    watch(%r{^app/.+\.(erb|haml|rhtml|rb)$})
+    watch(%r{^config/.+\.rb$})
+    watch(%r{^lib/.+\.rb$})
+    watch('Gemfile')
+  end
+end
+
+group :rubocop, cli: ['--rails', '--format', 'fuubar'] do
+  guard :rubocop do
+    watch(%r{.+\.rb$})
+    watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  end
+end

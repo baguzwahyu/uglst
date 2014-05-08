@@ -34,6 +34,9 @@
 
 Rails.application.routes.draw do
 
+  get '/dashboard' => 'dashboard#show'
+  get '/dashboard/:id' => 'dashboard#show'
+
   get '/contact' => 'pages#contact'
   get '/privacy_policy' => 'pages#privacy_policy'
   get '/terms_of_service' => 'pages#terms_of_service'
@@ -42,8 +45,6 @@ Rails.application.routes.draw do
   resources :user_groups
 
   devise_for :users, controllers: { registrations: 'registrations' }
-  get '/user'     => 'users#show'
-  get '/user/:id' => 'users#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,7 +1,6 @@
-Role.find_or_create_by(name: :participant)
-Role.find_or_create_by(name: :builder)
-Role.find_or_create_by(name: :supporter)
-Role.find_or_create_by(name: :admin)
+[:participant, :builder, :supporter, :admin].each do |role|
+  Role.find_or_create_by({ name: role }, without_protection: true)
+end
 
 User.find_or_create_by(email: 'mike@ugtastic.com') do |user|
   user.password = Rails.env.development? ? 'password' : SecureRandom.uuid
@@ -9,6 +8,7 @@ User.find_or_create_by(email: 'mike@ugtastic.com') do |user|
 end
 
 if Rails.env.development?
+
   User.find_or_create_by(email: 'builder@example.com') do |user|
     user.password = 'password'
     user.add_role :builder
@@ -23,4 +23,5 @@ if Rails.env.development?
     user.password = 'password'
     user.add_role :supporter
   end
+
 end

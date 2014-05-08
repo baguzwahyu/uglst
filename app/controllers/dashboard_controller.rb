@@ -1,6 +1,4 @@
 class DashboardController < ApplicationController
-  layout 'dashboard'
-
   def show
     case @context = dashboard_context
     when :show_own_profile

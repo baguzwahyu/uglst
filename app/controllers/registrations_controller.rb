@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     if current_user
-      dashboard_path(current_user)
+      dashboard_path
     else
       root_path
     end

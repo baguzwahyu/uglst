@@ -1,2 +1,0 @@
-describe UsersController do
-end

@@ -1,5 +1,6 @@
 <h2>My User-Groups</h2>
-<%= simple_form_for @user.profile do |f| %>
+
+<%= simple_form_for (@user.try(:profile) || Profile.new) do |f| %>
   <%= f.input :full_name %>
   <%= f.input :nickname %>
   <%= f.button :submit %>

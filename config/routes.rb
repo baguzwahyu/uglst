@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
 
   resources :user_groups
-  resources :users
+  resources :profiles
 
   devise_for :users, controllers: { registrations: 'registrations' }
 

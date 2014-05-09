@@ -11,12 +11,14 @@ class User < ActiveRecord::Base
 
   after_create :assign_default_role
 
+  scope :participants, ->{ joins(:affiliations).where(affiliations: { role: :participant }) }
+  scope :builders, ->{ joins(:affiliations).where(affiliations: { role: :builder }) }
+
+  #extend FriendlyId
+
   def assign_default_role
     add_role(:participant) if self.roles.blank?
   end
-
-  scope :participants, ->{ joins(:affiliations).where(affiliations: { role: :participant }) }
-  scope :builders, ->{ joins(:affiliations).where(affiliations: { role: :builder }) }
 
   def join_user_group_as_builder(user_group)
     affiliations.create(role: :builder, user_group: user_group)

@@ -1,7 +1,6 @@
 describe User do
   it { should have_one :profile }
 
-
   let(:simple_user) { User.create!(email: Faker::Internet.email, password: 'password', password_confirmation: 'password') }
   let(:simple_user_group) { UserGroup.create!(name: Faker::Conference.name) }
 

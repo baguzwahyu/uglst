@@ -2,11 +2,9 @@ class DashboardController < ApplicationController
   def show
     case @context = dashboard_context
     when :show_own_profile
-      puts 'Show own profile'
       @user = current_user
       render 'dashboard/private'
     when :show_other_public_profile
-      puts 'Show other public profile...'
       @user = User.find_by_id(params[:id])
       render 'dashboard/public'
     when :require_signin

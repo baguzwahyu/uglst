@@ -1,7 +1,7 @@
 <h2>My User-Groups</h2>
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user.profile do |f| %>
   <%= f.input :full_name %>
-  <%= f.input :short_name %>
+  <%= f.input :nickname %>
   <%= f.button :submit %>
 <% end %>
 <%= render partial: 'user_groups_table', locals: { user: @user } %>

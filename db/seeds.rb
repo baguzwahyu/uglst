@@ -2,10 +2,12 @@
   Role.find_or_create_by(name: role)
 end
 
-User.find_or_create_by(email: 'mike@ugtastic.com') do |user|
+admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |user|
   user.password = Rails.env.development? ? 'password' : SecureRandom.uuid
   user.add_role :admin
 end
+admin.create_profile(full_name: 'Mike Hall', nickname: 'ugtastic')
+
 
 if Rails.env.development?
   ug_can = UserGroup.find_or_create_by(name: 'Chicago Alt.NET')

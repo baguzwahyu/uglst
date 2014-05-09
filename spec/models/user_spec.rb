@@ -1,6 +1,7 @@
 describe User do
   it { should have_one :profile }
 
+
   let(:simple_user) { User.create!(email: Faker::Internet.email, password: 'password', password_confirmation: 'password') }
   let(:simple_user_group) { UserGroup.create!(name: Faker::Conference.name) }
 
@@ -10,7 +11,7 @@ describe User do
 
   it 'can create a user with a profile' do
     u = simple_user
-    u.create_profile(nickname: Faker::Lorem.word)
+    u.create_profile
 
     u.should be_instance_of User
     u.profile.should be_instance_of Profile

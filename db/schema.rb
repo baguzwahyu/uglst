@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 20140508221124) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
-    t.string   "full_name"
-    t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

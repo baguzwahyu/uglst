@@ -25,14 +25,22 @@
       </ul>
 
       <div class="tab-content">
+
         <div class="tab-pane active" id="inbox">
-          <a type="button" data-toggle="collapse" data-target="#a1">
-            <div class="btn-toolbar well well-sm" role="toolbar"  style="margin:0px;">
-              <div class="btn-group"><input type="checkbox"></div>
-              <div class="btn-group col-md-3">Admin Kumar</div>
-              <div class="btn-group col-md-8"><b>Hi Check this new Bootstrap plugin</b> <div class="pull-right"><i class="glyphicon glyphicon-time"></i> 12:10 PM <button class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-share-square-o"> Reply</i></button></div> </div>
-            </div>
-          </a>
+          <% @user_group.affiliations.each do |affiliation| %>
+            <a type="button" data-toggle="collapse" data-target="#a1">
+              <div class="btn-toolbar well well-sm" role="toolbar"  style="margin:0px;">
+                <div class="btn-group"><input type="checkbox"></div>
+                <div class="btn-group col-md-3"><%= affiliation.role %></div>
+                <div class="btn-group col-md-8">
+                  <b><%= affiliation.user.email %></b>
+                  <div class="pull-right"><i class="glyphicon glyphicon-time"></i>
+                    12:10 PM
+                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-share-square-o"> Reply</i></button></div>
+                </div>
+              </div>
+            </a>
+          <% end %>
           <div id="a1" class="collapse out well">This is the message body1</div>
           <br>
           <button class="btn btn-primary btn-xs"><i class="fa fa-check-square-o"></i> Delete Checked Item's</button>
@@ -63,7 +71,7 @@
               <img class="media-object img-thumbnail" width="100" src="http://cfi-sinergia.epfl.ch/files/content/sites/cfi-sinergia/files/WORKSHOPS/Workshop1.jpg" alt="...">
             </a>
             <div class="media-body">
-              <h4 class="media-heading">Animation Workshop</h4>
+              <h3 class="media-heading">Animation Workshop</h3>
               2Days animation workshop to be conducted
             </div>
           </div>

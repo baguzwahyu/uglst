@@ -17,16 +17,16 @@ if Rails.env.development?
     user.password = 'password'
     user.add_role :builder
   end
-  builder.join_user_group_as_builder(ug_scmc)
-  builder.join_user_group_as_participant(ug_rn)
-  builder.join_user_group_as_participant(ug_can)
+  builder.join_user_group_as_organizer(ug_scmc)
+  builder.join_user_group_as_member(ug_rn)
+  builder.join_user_group_as_member(ug_can)
 
   participant = User.find_or_create_by(email: 'participant@example.com') do |user|
     user.password = 'password'
     user.add_role :participant
   end
-  participant.join_user_group_as_participant(ug_scmc)
-  participant.join_user_group_as_participant(ug_can)
+  participant.join_user_group_as_member(ug_scmc)
+  participant.join_user_group_as_member(ug_can)
 
   User.find_or_create_by(email: 'supporter@example.com') do |user|
     user.password = 'password'

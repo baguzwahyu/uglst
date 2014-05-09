@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140508221124) do
   end
 
   add_index "affiliations", ["user_group_id"], name: "index_affiliations_on_user_group_id", using: :btree
+  add_index "affiliations", ["user_id", "user_group_id"], name: "index_affiliations_on_user_id_and_user_group_id", unique: true, using: :btree
   add_index "affiliations", ["user_id"], name: "index_affiliations_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|

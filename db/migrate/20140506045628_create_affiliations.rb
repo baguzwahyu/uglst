@@ -8,5 +8,7 @@ class CreateAffiliations < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :affiliations, [:user_id, :user_group_id], unique: true
   end
 end

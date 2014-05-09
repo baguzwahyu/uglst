@@ -20,12 +20,12 @@ class User < ActiveRecord::Base
     add_role(:participant) if self.roles.blank?
   end
 
-  def join_user_group_as_builder(user_group)
-    affiliations.create(role: :builder, user_group: user_group)
+  def join_user_group_as_organizer(user_group)
+    affiliations.create(role: :organizer, user_group: user_group)
   end
 
-  def join_user_group_as_participant(user_group)
-    affiliations.create(role: :participant, user_group: user_group)
+  def join_user_group_as_member(user_group)
+    affiliations.create(role: :member, user_group: user_group)
   end
 end
 

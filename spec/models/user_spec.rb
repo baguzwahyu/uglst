@@ -23,7 +23,7 @@ describe User do
     u = simple_user
     ug = simple_user_group
 
-    u.join_user_group_as_participant(ug)
+    u.join_user_group_as_member(ug)
 
     u.should be_valid
     u.user_groups.should have(1).items
@@ -40,7 +40,7 @@ describe User do
     u = simple_user
     ug = simple_user_group
 
-    u.join_user_group_as_builder(ug)
+    u.join_user_group_as_organizer(ug)
 
     u.should be_valid
     u.user_groups.should have(1).items

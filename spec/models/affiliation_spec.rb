@@ -2,8 +2,8 @@ describe Affiliation do
   it { should belong_to :user }
   it { should belong_to :user_group }
 
-  it { should allow_value(:builder).for(:role) }
-  it { should allow_value(:participant).for(:role) }
+  it { should allow_value(:organizer).for(:role) }
+  it { should allow_value(:member).for(:role) }
   it { should_not allow_value(:supporter).for(:role) }
 end
 

@@ -55,6 +55,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'timecop'
   gem 'vcr'
+  gem 'simplecov'
 end
 
 group :production do

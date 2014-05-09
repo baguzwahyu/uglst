@@ -15,7 +15,7 @@ $(document).ready(function () {
 });
 
 
-/* User-Group Table ==> */
+/* User-Group Private Dasbhboard Table==> */
 
 $(document).ready(function(){
   $('.filterable .btn-filter').click(function(){
@@ -60,4 +60,10 @@ $(document).ready(function(){
   });
 });
 
-/* <== User-Group Table */
+/* <== User-Group Private Dashboard Table */
+
+/* User-Group Show ==> */
+$(function () {
+  $('#myTab a:last').tab('show')
+})
+/* <== User-Group Show */

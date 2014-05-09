@@ -22,6 +22,7 @@ gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 gem 'therubyrhino'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'public_activity'
 
 group :development do
   gem 'annotate'

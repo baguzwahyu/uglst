@@ -41,6 +41,8 @@ group :development do
   gem 'rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'travis'
+  gem 'travis-lint'
 end
 
 group :development, :test do

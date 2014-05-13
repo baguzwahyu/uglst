@@ -1,4 +1,4 @@
-group :rspec, halt_on_fail: true, cmd: 'bundle exec spring rspec' do
+group :rspec, halt_on_fail: true, cmd: 'env bin/rspec spec' do
 
   guard :bundler do
     watch('Gemfile')

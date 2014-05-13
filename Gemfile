@@ -50,13 +50,14 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'codeclimate-test-reporter', require: false
   gem 'fuubar'
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'timecop'
   gem 'vcr'
-  gem 'simplecov'
 end
 
 group :production do
@@ -70,3 +71,4 @@ end
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
+

@@ -1,9 +1,12 @@
 language: ruby
 rvm:
-  - 2.1.1
+- 2.1.1
 before_install:
-  - gem update --system
-  - travis_retry gem install bundler --pre
+- gem update --system
+- travis_retry gem install bundler --pre
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database uglst_test;' -U postgres
+- cp config/database.travis.yml config/database.yml
+- psql -c 'create database uglst_test;' -U postgres
+env:
+  global:
+    secure: O5iUzhPvSSA1T4oRCBhhdTVjlJr8qdQBxUqBE5CKZgek6SXJIntjH1jXlLgdHGkU5Q9HJH7OpFVotK3/txxGvY57/SM3C0fTgwJjunKTeq7vypXoh94gGzUhGGBWUE5SvkWVN8PND2e90VFTdn7DmRtoWZJx0Ws6HkCmCfjSfEk=

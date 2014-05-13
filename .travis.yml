@@ -9,4 +9,4 @@ before_script:
 - psql -c 'create database uglst_test;' -U postgres
 env:
   global:
-    secure: O5iUzhPvSSA1T4oRCBhhdTVjlJr8qdQBxUqBE5CKZgek6SXJIntjH1jXlLgdHGkU5Q9HJH7OpFVotK3/txxGvY57/SM3C0fTgwJjunKTeq7vypXoh94gGzUhGGBWUE5SvkWVN8PND2e90VFTdn7DmRtoWZJx0Ws6HkCmCfjSfEk=
+    secure: iZRMHtUq5szn8jlUurVOb1S07JDW9hLFKaynkhYHZ0vShdRXJW9gSApzio/U/fKWYDp0xO8eBu9cBdtGqq7p1qQBB7+WB0ClMVL/faZMssY/erZfVle12vclPazQis37LEXNaalvEa7cI2TX3/3pC5jIfFxfr0IFWYlhpIvzINc=

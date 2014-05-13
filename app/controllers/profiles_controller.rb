@@ -5,10 +5,10 @@ class ProfilesController < ApplicationController
     case @context = dashboard_context
     when :show_own_profile
       @user = current_user
-      render 'dashboard/private'
+      render :show
     when :show_other_public_profile
       @user = User.find_by_id(params[:id])
-      render 'dashboard/public'
+      #render 'dashboard/public'
     when :require_signin
       redirect_to new_user_session_path, notice: 'Sign up to create your own dashboard.'
     end
@@ -19,14 +19,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
-    @profile = Profile.find_or_initialize_by(profile_params)
-
+    @profile = current_user.create_profile(profile_params)
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to user_profile_path(current_user), notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to user_profile_path(current_user), notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
@@ -48,6 +48,7 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
+
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profile_url, notice: 'Profile was successfully destroyed.' }
@@ -58,13 +59,11 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-
     @profile = if current_user.profile.nil?
                  current_user.build_profile
                else
                  current_user.profile
                end
-
   end
 
   def profile_params

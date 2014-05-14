@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
+gem 'rails', '~> 4.1.0'
+
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -16,7 +18,6 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'pry-rails'
 gem 'public_activity'
-gem 'rails', '4.1.0'
 gem 'rolify'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'

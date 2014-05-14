@@ -1,12 +1,14 @@
 language: ruby
 rvm:
 - 2.1.1
+bundler_args: "--without development production autotest"
 before_install:
 - gem update --system
 - travis_retry gem install bundler --pre
 before_script:
 - cp -f config/database.travis.yml config/database.yml
-- psql -c 'create database uglst_test;' -U postgres
+- cp -f .env.example .env
+- bin/rake db:create db:schema:load RAILS_ENV=test
 env:
   global:
     secure: iZRMHtUq5szn8jlUurVOb1S07JDW9hLFKaynkhYHZ0vShdRXJW9gSApzio/U/fKWYDp0xO8eBu9cBdtGqq7p1qQBB7+WB0ClMVL/faZMssY/erZfVle12vclPazQis37LEXNaalvEa7cI2TX3/3pC5jIfFxfr0IFWYlhpIvzINc=

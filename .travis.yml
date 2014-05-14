@@ -5,8 +5,15 @@ before_install:
 - gem update --system
 - travis_retry gem install bundler --pre
 before_script:
-- cp config/database.travis.yml config/database.yml
+- cp -f config/database.travis.yml config/database.yml
 - psql -c 'create database uglst_test;' -U postgres
 env:
   global:
     secure: iZRMHtUq5szn8jlUurVOb1S07JDW9hLFKaynkhYHZ0vShdRXJW9gSApzio/U/fKWYDp0xO8eBu9cBdtGqq7p1qQBB7+WB0ClMVL/faZMssY/erZfVle12vclPazQis37LEXNaalvEa7cI2TX3/3pC5jIfFxfr0IFWYlhpIvzINc=
+deploy:
+  provider: heroku
+  api_key:
+    secure: GXRnr0/ZeEjLS60bwkWUeEhRvpjcivSBSH8RduUgxepy9+AaCiCE3WyL0HLeoTn1rTAe0rhgB5oCYKUhhgiB0mRm7oLOVNUfclOnf8VBAxxhpuMGUaG0GLN3LcMveYKvE/buuwgn7yi73xkD2CZUJnnn4dWIJ+/45VY2yOg/WbE=
+  app: uglst
+  on:
+    repo: ugtastic/uglst

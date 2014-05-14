@@ -26,24 +26,24 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
-  gem 'annotate'
+  gem 'annotate', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'brakeman'
-  gem 'guard-brakeman'
+  gem 'brakeman', require: false
+  gem 'guard-brakeman', require: false
   gem 'guard-bundler', require: false
   gem 'guard-livereload', require: false
-  gem 'guard-migrate'
-  gem 'guard-rspec'
-  gem 'guard-rubocop'
+  gem 'guard-migrate', require: false
+  gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
   gem 'meta_request'
   gem 'quiet_assets'
-  gem 'rails-erd'
-  gem 'rubocop'
+  gem 'rails-erd', require: false
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'travis'
-  gem 'travis-lint'
+  gem 'travis', require: false
+  gem 'travis-lint', require: false
 end
 
 group :development, :test do

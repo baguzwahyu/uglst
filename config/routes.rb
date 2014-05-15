@@ -1,6 +1,14 @@
-# == Route Map (Updated 2014-05-13 11:23)
+# == Route Map (Updated 2014-05-15 17:53)
 #
 #                   Prefix Verb   URI Pattern                            Controller#Action
+#       search_suggestions GET    /search_suggestions(.:format)          search_suggestions#index
+#                          POST   /search_suggestions(.:format)          search_suggestions#create
+#    new_search_suggestion GET    /search_suggestions/new(.:format)      search_suggestions#new
+#   edit_search_suggestion GET    /search_suggestions/:id/edit(.:format) search_suggestions#edit
+#        search_suggestion GET    /search_suggestions/:id(.:format)      search_suggestions#show
+#                          PATCH  /search_suggestions/:id(.:format)      search_suggestions#update
+#                          PUT    /search_suggestions/:id(.:format)      search_suggestions#update
+#                          DELETE /search_suggestions/:id(.:format)      search_suggestions#destroy
 #                  contact GET    /contact(.:format)                     pages#contact
 #           privacy_policy GET    /privacy_policy(.:format)              pages#privacy_policy
 #         terms_of_service GET    /terms_of_service(.:format)            pages#terms_of_service
@@ -47,6 +55,8 @@
 #
 
 Rails.application.routes.draw do
+  resources :search_suggestions
+
   get '/contact' => 'pages#contact'
   get '/privacy_policy' => 'pages#privacy_policy'
   get '/terms_of_service' => 'pages#terms_of_service'

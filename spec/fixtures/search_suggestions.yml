@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  term: MyString
+  popularity: 1
+
+two:
+  term: MyString
+  popularity: 1
+
+# == Schema Information
+# Schema version: 20140515151603
+#
+# Table name: search_suggestions
+#
+#  id         :integer          not null, primary key
+#  term       :string(255)
+#  popularity :integer
+#  created_at :datetime
+#  updated_at :datetime
+#

@@ -4,3 +4,24 @@
 
 <%= link_to 'Edit', edit_user_profile_path(@profile) %> |
 <%= link_to 'Back', user_profile_path %>
+
+
+<%= user_group_summary %>
+
+<form>
+  <fieldset>
+    <legend>Find a user-group to join</legend>
+    <label for="search_by_topic">Topic Search:</label>
+    <input id="search_by_topic" placeholder="Ruby">
+    <br>
+    AND/OR
+    <br>
+    <label for="search_by_city">Location City:</label>
+    <input id="search_by_city" placeholder="City">
+    <br>
+    <label for="search_by_srp">State/Region/Province:</label>
+    <input id="search_by_srp" placeholder="State/Region/Province">
+    <br>
+    <input type="submit" id="submit_search">
+  </fieldset>
+</form>

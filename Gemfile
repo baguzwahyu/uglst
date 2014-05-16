@@ -41,7 +41,7 @@ group :development do
   gem 'guard-rubocop', require: false
   gem 'meta_request'
   gem 'quiet_assets'
-  gem 'rails-erd', require: false
+  gem 'rails-erd'
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-commands-rspec'

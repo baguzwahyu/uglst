@@ -2,6 +2,9 @@ class UserGroup < ActiveRecord::Base
   has_many :affiliations
   has_many :users, through: :affiliations
 
+  has_many :venues
+  has_many :locations, through: :venues
+
   validates :name, presence: true
 end
 

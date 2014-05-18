@@ -1,5 +1,7 @@
-<%= simple_form_for @profile, url: user_profile_path(current_user) do |f| %>
-  <%= f.input :full_name %>
-  <%= f.input :nickname %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row">
+  <%= simple_form_for @profile, url: user_profile_path(current_user) do |f| %>
+    <%= f.input :full_name %>
+    <%= f.input :nickname %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

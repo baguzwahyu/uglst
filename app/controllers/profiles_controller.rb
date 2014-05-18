@@ -18,9 +18,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
   end
 
-  def edit
-
-  end
+  def edit ; end
 
   def create
     @profile = current_user.create_profile(profile_params)
@@ -48,7 +46,6 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profile_url, notice: 'Profile was successfully destroyed.' }

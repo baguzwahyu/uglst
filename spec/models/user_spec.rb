@@ -1,4 +1,4 @@
-describe User do
+describe User, :pending do
   it { should have_one :profile }
 
   let(:simple_user) { User.create!(email: Faker::Internet.email, password: 'password', password_confirmation: 'password') }
@@ -55,7 +55,7 @@ describe User do
 end
 
 # == Schema Information
-# Schema version: 20140515151603
+# Schema version: 20140516063750
 #
 # Table name: users
 #

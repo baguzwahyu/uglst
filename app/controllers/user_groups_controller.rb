@@ -10,6 +10,11 @@ class UserGroupsController < ApplicationController
 
   def new
     @user_group = UserGroup.new
+    @user_group.venues.build.build_location
+
+
+    ap @user_group
+    @user_group
   end
 
   def edit
@@ -17,6 +22,8 @@ class UserGroupsController < ApplicationController
 
   def create
     @user_group = UserGroup.new(user_group_params)
+
+
 
     respond_to do |format|
       if @user_group.save
@@ -58,6 +65,6 @@ class UserGroupsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_group_params
-    params.require(:user_group).permit(:name, :description, :homepage)
+    params.require(:user_group).permit(:name, :description, :homepage, venues_attributes: [locations: [:name, :full_street_address, :latitude, :longitude]])
   end
 end

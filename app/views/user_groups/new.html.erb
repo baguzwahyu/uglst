@@ -1,5 +1,74 @@
-<h1>New user_group</h1>
+<h1>Register Your User-Group</h1>
 
-<%= render 'form' %>
+<input type="hidden" id="formatted_address">
+<%= simple_form_for(@user_group) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :name, required: true, placeholder: 'Homebrew Computer Club' %>
+    <%= f.input :description, placeholder: 'Are you building your own computer? Terminal? T V Typewriter? I/O device? or some other digital black-magic box?  Or are you buying time on a time-sharing service?  If so, you might like to come to a gathering of people with like-minded interests. Exchange information, swap ideas, talk shop, help work on a project, whatever . . .' %>
+    <%= f.input :homepage, required: true, placeholder: 'http://www.your-user-group.org', hint: 'Where can we go for more information? Could be a Meetup page or even a Twitter account.' %>
+    <fieldset class="container">
+      <legend>Location</legend>
+      <div class="row">
+        <div class="col-xs-5">
+          <%= f.simple_fields_for :venues do |venues_f| %>
+            <%= venues_f.simple_fields_for :locations do |locations_f| %>
+              <%= locations_f.input :name, required: true, placeholder: 'French Gordan\'s Garage', hint: 'What is the name of the place you typically meet at? Could be the name of a company, restaurant, or co-working space. (You can add more later.)' %>
+              <%= locations_f.input :full_street_address, required: true, placeholder: '614 18th Ave., Menlo Park (near Marsh Road)', hint: "As much of the address as you know. Please provide at least the city, state/region/provice, and country.", as: :text %>
+              <%= locations_f.input :latitude, as: :hidden %>
+              <%= locations_f.input :longitude, as: :hidden %>
+            <% end %>
+          <% end %>
+        </div>
 
-<%= link_to 'Back', user_groups_path %>
+        <div class="col-xs-5">
+          <div id="map"></div>
+        </div>
+
+      </div>
+    </fieldset>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, 'Save' %>
+  </div>
+<% end %>
+
+<div id="confirm-address" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="updateAddressModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="updateAddressModalLabel">Did we understand your address correctly?</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-xs-3">
+              <div class="well" style="height: 150px;">
+                <h4>You entered:</h4>
+                <address id="original-address"></address>
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <div class="well" style="height: 150px;">
+                <h4>But we found:</h4>
+                <address id="formatted-address"></address>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="use-original-address">Use original</button>
+        <button type="button" class="btn btn-primary" id="use-formatted-address">Replace with updated address</button>
+      </div>
+
+    </div>
+  </div>
+</div>

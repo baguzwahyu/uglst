@@ -1,4 +1,4 @@
-# == Route Map (Updated 2014-05-15 17:53)
+# == Route Map (Updated 2014-05-16 14:01)
 #
 #                   Prefix Verb   URI Pattern                            Controller#Action
 #       search_suggestions GET    /search_suggestions(.:format)          search_suggestions#index

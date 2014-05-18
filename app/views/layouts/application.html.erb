@@ -7,8 +7,9 @@
     <title><%= content_for?(:title) ? yield(:title) : "User-Group List: Build. Participate. Support." %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : '' %>">
     <meta name="author" content="<%= content_for?(:author) ? yield(:author) : '' %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
@@ -22,13 +23,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">User-Group List</a>
+          <%= link_to 'User-Group List', user_groups_path, class: 'navbar-brand' %>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <%= nav_tab('Home', root_path) %>
-            <%= nav_tab('About', about_path) %>
-            <%= nav_tab('Contact', contact_path) %>
+            <%= nav_tab('User-Groups List', user_groups_path) %>
+            <% if current_user %>
+              <%= nav_tab('Me', user_profile_path(current_user)) %>
+            <% end %>
+            <%#= nav_tab('About', about_path) %>
+            <%#= nav_tab('Contact', contact_path) %>
+            <!--
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -41,7 +47,18 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+            -->
           </ul>
+          <!-- <div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search User-Groups" name="q" id="q">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div> -->
         </div>
         <!--/.nav-collapse -->
       </div>
@@ -49,9 +66,11 @@
 
 
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <% if current_user %><%= link_to 'sign out', destroy_user_session_path, method: :delete %><% end %>
+      <div class="row">
+        <%= render 'layouts/flash_messages' %>
+        <% if current_user %><%= link_to 'sign out', destroy_user_session_path, method: :delete %><% end %>
+      </div>
+
       <%= yield %>
     </div>
   </body>

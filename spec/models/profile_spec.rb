@@ -6,7 +6,7 @@ describe Profile do
 end
 
 # == Schema Information
-# Schema version: 20140515151603
+# Schema version: 20140516063750
 #
 # Table name: profiles
 #

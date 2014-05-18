@@ -1,15 +1,18 @@
 class UserGroup < ActiveRecord::Base
-  has_many :affiliations
-  has_many :users, through: :affiliations
+  #has_many :affiliations
+  #has_many :users, through: :affiliations
 
-  has_many :venues
+  has_many :venues, inverse_of: :user_group
   has_many :locations, through: :venues
 
   validates :name, presence: true
+  validates :homepage, presence: true
+
+  accepts_nested_attributes_for :venues
 end
 
 # == Schema Information
-# Schema version: 20140515151603
+# Schema version: 20140516063750
 #
 # Table name: user_groups
 #

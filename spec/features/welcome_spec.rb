@@ -23,16 +23,25 @@ feature 'Starting at the Welcome Page' do
       end
 
       scenario 'sign up' do
-        visit root_path
-        click_link 'participant'
-
-        fill_in 'Email', with: 'participant@example.com'
-        fill_in 'user_password', with: 'password'
-        fill_in 'user_password_confirmation', with: 'password'
-
-        click_button 'Sign up'
+        sign_up_a_new_user_as_a 'participant'
 
         expect(page).to have_content('Welcome! You have signed up successfully.')
+      end
+
+      context 'successful registration' do
+        before do
+          sign_up_a_new_user_as_a 'participant'
+        end
+
+        scenario 'enter profile info' do
+          fill_in 'Full name', with: Faker::Name.name
+          fill_in 'Nickname', with: Faker::Name.first_name
+
+          click_button 'Create Profile'
+
+          expect(page).to have_content('Profile was successfully created')
+          expect(page).to have_content('You are currently participating in 0 user-groups.')
+        end
       end
     end
 

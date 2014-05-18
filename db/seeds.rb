@@ -10,10 +10,11 @@ admin.create_profile(full_name: 'Mike Hall', nickname: 'ugtastic')
 
 
 if Rails.env.development?
-  ug_can = UserGroup.find_or_create_by(name: 'Chicago Alt.NET')
+  ug_can = UserGroup.find_or_create_by(name: 'Chicago Alt.NET', description: Faker::Lorem.paragraph)
   ug_cdg = UserGroup.find_or_create_by(name: 'Cloud Developer\'s Group')
   ug_rn = UserGroup.find_or_create_by(name: 'Rockford .NET')
-  ug_scmc = UserGroup.find_or_create_by(name: 'Software Craftsmanship McHenry County')
+  ug_scmc = UserGroup.find_or_create_by(name: 'Software Craftsmanship McHenry County', description: Faker::Lorem.paragraph)
+  SearchSuggestion.index_user_groups
 
   builder = User.find_or_create_by(email: 'builder@example.com') do |user|
     user.password = 'password'

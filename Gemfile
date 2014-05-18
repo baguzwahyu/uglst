@@ -27,6 +27,7 @@ gem 'therubyrhino'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'geocoder'
+gem 'ffaker'
 
 group :development do
   gem 'annotate', require: false
@@ -51,7 +52,6 @@ end
 
 group :development, :test do
   gem 'jazz_hands'
-  gem 'ffaker'
 end
 
 group :test do
